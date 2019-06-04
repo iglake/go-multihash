@@ -1,4 +1,4 @@
-module github.com/multiformats/go-multihash
+module github.com/iglake/go-multihash
 
 require (
 	github.com/gxed/hashland/keccakpg v0.0.1
