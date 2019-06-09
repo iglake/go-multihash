@@ -50,6 +50,8 @@ const (
 	KECCAK_384 = 0x1C
 	KECCAK_512 = 0x1D
 
+MYHASH     = 0x79
+
 	SHAKE_128 = 0x18
 	SHAKE_256 = 0x19
 
@@ -89,6 +91,7 @@ func init() {
 
 // Names maps the name of a hash to the code
 var Names = map[string]uint64{
+"myhash":       MYHASH,
 	"id":           ID,
 	"sha1":         SHA1,
 	"sha2-256":     SHA2_256,
@@ -112,6 +115,7 @@ var Names = map[string]uint64{
 
 // Codes maps a hash code to it's name
 var Codes = map[uint64]string{
+MYHASH:          "myhash",
 	ID:           "id",
 	SHA1:         "sha1",
 	SHA2_256:     "sha2-256",
@@ -135,6 +139,7 @@ var Codes = map[uint64]string{
 // DefaultLengths maps a hash code to it's default length
 var DefaultLengths = map[uint64]int{
 	ID:           -1,
+MYHASH:       28,
 	SHA1:         20,
 	SHA2_256:     32,
 	SHA2_512:     64,

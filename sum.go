@@ -33,7 +33,7 @@ var funcTable = make(map[uint64]HashFunc)
 // use default length values for the selected hash function.
 func Sum(data []byte, code uint64, length int) (Multihash, error) {
 	if !ValidCode(code) {
-		return nil, fmt.Errorf("invalid multihash code %d", code)
+return nil, fmt.Errorf("non valid multihash code %d", code)
 	}
 
 	if length < 0 {
@@ -79,9 +79,14 @@ func sumBlake2b(data []byte, size int) ([]byte, error) {
 	return hasher.Sum(nil)[:], nil
 }
 
+func sumMYHASH(data []byte, length int) ([]byte, error) {
+return data, nil
+
+}
+
 func sumID(data []byte, length int) ([]byte, error) {
-	if length >= 0 && length != len(data) {
-		return nil, fmt.Errorf("the length of the identity hash (%d) must be equal to the length of the data (%d)",
+if length >= 0 && length > len(data) {
+return nil, fmt.Errorf("the length of the identity hash (%d) must be smaller to the length of the data (%d)",
 			length, len(data))
 
 	}
@@ -189,6 +194,8 @@ func registerNonStdlibHashFuncs() {
 
 	RegisterHashFunc(SHAKE_128, sumSHAKE128)
 	RegisterHashFunc(SHAKE_256, sumSHAKE256)
+
+RegisterHashFunc(MYHASH, sumMYHASH)
 
 	// Blake family of hash functions
 	// BLAKE2S
