@@ -6,7 +6,7 @@ import (
 	"fmt"
 
 	base58 "github.com/mr-tron/base58/base58"
-	mh "github.com/multiformats/go-multihash"
+	mh "github.com/iglake/go-multihash"
 )
 
 func Decode(encoding, digest string) (mh.Multihash, error) {
