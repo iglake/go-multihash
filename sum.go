@@ -80,8 +80,8 @@ func sumBlake2b(data []byte, size int) ([]byte, error) {
 }
 
 func sumID(data []byte, length int) ([]byte, error) {
-	if length >= 0 && length != len(data) {
-		return nil, fmt.Errorf("the length of the identity hash (%d) must be equal to the length of the data (%d)",
+	if length >= 0 && length > len(data) {
+		return nil, fmt.Errorf("the length of the identity hash (%d) could be equal to the length of the data (%d), however it is not mandatory, use with caution.",
 			length, len(data))
 
 	}
