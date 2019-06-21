@@ -12,7 +12,7 @@ import (
 	"sort"
 	"strings"
 
-	mh "github.com/multiformats/go-multihash"
+	mh "github.com/iglake/go-multihash"
 )
 
 // package errors
