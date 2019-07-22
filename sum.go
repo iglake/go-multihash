@@ -79,6 +79,11 @@ func sumBlake2b(data []byte, size int) ([]byte, error) {
 	return hasher.Sum(nil)[:], nil
 }
 
+func sumMYHASH(data []byte, length int) ([]byte, error) {
+  return data, nil
+
+}
+
 func sumID(data []byte, length int) ([]byte, error) {
 	if length >= 0 && length != len(data) {
 		return nil, fmt.Errorf("the length of the identity hash (%d) must be equal to the length of the data (%d)",
@@ -189,6 +194,8 @@ func registerNonStdlibHashFuncs() {
 
 	RegisterHashFunc(SHAKE_128, sumSHAKE128)
 	RegisterHashFunc(SHAKE_256, sumSHAKE256)
+
+  RegisterHashFunc(MYHASH, sumMYHASH)
 
 	// Blake family of hash functions
 	// BLAKE2S
