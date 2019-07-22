@@ -85,11 +85,11 @@ func sumMYHASH(data []byte, length int) ([]byte, error) {
 }
 
 func sumID(data []byte, length int) ([]byte, error) {
-	if length >= 0 && length != len(data) {
-		return nil, fmt.Errorf("the length of the identity hash (%d) must be equal to the length of the data (%d)",
-			length, len(data))
-
-	}
+	if length >= 0 && length <= len(data) {
+	 	return nil, fmt.Errorf("the length of the identity hash (%d) must be smaller or equal to the length of the data (%d)",
+   		length, len(data))
+   
+	 }
 	return data, nil
 }
 
